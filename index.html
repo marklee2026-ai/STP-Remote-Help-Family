@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Splashtop Personal — Be There When It Matters</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #faf7f2;
+  --warm-white: #fff9f4;
+  --ink: #1a1410;
+  --ink-mid: #3d3530;
+  --ink-soft: #7a6e68;
+  --ink-hint: #b8afa8;
+  --teal: #0a7c6a;
+  --teal-light: #e6f4f1;
+  --teal-mid: #12a98f;
+  --amber: #c4620a;
+  --amber-light: #fef3e8;
+  --red-soft: #c0392b;
+  --border: rgba(26,20,16,.1);
+  --shadow-sm: 0 2px 12px rgba(26,20,16,.06);
+  --shadow-md: 0 8px 40px rgba(26,20,16,.1);
+  --shadow-lg: 0 24px 80px rgba(26,20,16,.13);
+  --radius: 16px;
+  --radius-sm: 8px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250,247,242,.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'Lora', serif;
+  font-weight: 700; font-size: 18px;
+  letter-spacing: -.01em; color: var(--ink);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--teal); }
+.nav-tag {
+  font-size: 11px; font-weight: 500; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-soft);
+}
+.nav-cta {
+  background: var(--teal); color: #fff;
+  border: none; border-radius: 100px;
+  padding: 9px 22px; font-size: 13px; font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer; text-decoration: none;
+  transition: background .2s, transform .15s;
+  display: inline-block;
+}
+.nav-cta:hover { background: #0a6a5a; transform: translateY(-1px); }
+
+/* ── HERO ── */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 88vh;
+  align-items: stretch;
+}
+.hero-left {
+  padding: 80px 60px 80px 64px;
+  display: flex; flex-direction: column; justify-content: center;
+  background: var(--warm-white);
+  position: relative;
+}
+.hero-left::after {
+  content: '';
+  position: absolute; right: 0; top: 10%; bottom: 10%;
+  width: 1px; background: var(--border);
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 500; letter-spacing: .15em;
+  text-transform: uppercase; color: var(--teal);
+  margin-bottom: 24px;
+}
+.hero-eyebrow::before {
+  content: ''; width: 20px; height: 2px; background: var(--teal);
+}
+.hero-h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(38px, 4vw, 54px);
+  font-weight: 700; line-height: 1.12;
+  letter-spacing: -.02em; color: var(--ink);
+  margin-bottom: 24px;
+}
+.hero-h1 em { color: var(--teal); font-style: italic; }
+.hero-sub {
+  font-size: 17px; color: var(--ink-mid);
+  line-height: 1.75; max-width: 460px;
+  font-weight: 300; margin-bottom: 40px;
+}
+.hero-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--teal); color: #fff;
+  border: none; border-radius: 100px;
+  padding: 14px 30px; font-size: 15px; font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer; text-decoration: none;
+  transition: background .2s, transform .15s, box-shadow .2s;
+  box-shadow: 0 4px 20px rgba(10,124,106,.25);
+}
+.btn-primary:hover { background: #0a6a5a; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(10,124,106,.3); }
+.btn-secondary {
+  color: var(--ink-mid); font-size: 14px; font-weight: 500;
+  text-decoration: none; display: flex; align-items: center; gap: 6px;
+  transition: color .2s;
+}
+.btn-secondary:hover { color: var(--teal); }
+
+.trust-row {
+  margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border);
+  display: flex; gap: 32px; flex-wrap: wrap;
+}
+.trust-item {
+  display: flex; flex-direction: column;
+}
+.trust-num {
+  font-family: 'Lora', serif; font-size: 28px; font-weight: 700;
+  color: var(--ink); letter-spacing: -.02em;
+}
+.trust-num span { color: var(--teal); }
+.trust-lbl {
+  font-size: 11px; font-weight: 500; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-soft); margin-top: 2px;
+}
+
+.hero-right {
+  position: relative; overflow: hidden;
+  background: #2a1f18;
+}
+.hero-img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  opacity: .88;
+  display: block;
+}
+.hero-img-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(10,124,106,.15) 0%, rgba(0,0,0,.05) 100%);
+}
+.hero-badge {
+  position: absolute; bottom: 32px; left: 28px; right: 28px;
+  background: rgba(250,247,242,.95);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  box-shadow: var(--shadow-lg);
+  display: flex; align-items: flex-start; gap: 14px;
+}
+.badge-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--teal-light); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+}
+.badge-text strong {
+  display: block; font-size: 14px; font-weight: 600; color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+}
+.badge-text span {
+  font-size: 12px; color: var(--ink-soft); line-height: 1.5;
+}
+.badge-live {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 500; color: var(--teal);
+  letter-spacing: .08em; text-transform: uppercase; margin-top: 4px;
+}
+.badge-live::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--teal); animation: livepulse 1.5s ease-in-out infinite;
+}
+@keyframes livepulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+/* ── SECTION UTILITY ── */
+.section { padding: 96px 64px; }
+.section-sm { padding: 72px 64px; }
+.section-eyebrow {
+  font-size: 11px; font-weight: 500; letter-spacing: .15em;
+  text-transform: uppercase; color: var(--teal); margin-bottom: 14px;
+  display: flex; align-items: center; gap: 8px;
+}
+.section-eyebrow::before { content: ''; width: 16px; height: 2px; background: var(--teal); }
+.section-h2 {
+  font-family: 'Lora', serif;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 700; line-height: 1.18; letter-spacing: -.02em;
+  color: var(--ink); margin-bottom: 16px;
+}
+.section-h2 em { color: var(--teal); font-style: italic; }
+.section-lead {
+  font-size: 17px; color: var(--ink-mid); font-weight: 300;
+  line-height: 1.75; max-width: 580px; margin-bottom: 56px;
+}
+
+/* ── HOW IT WORKS ── */
+.how-section { background: var(--warm-white); }
+.steps-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+  background: var(--border); border-radius: var(--radius);
+  overflow: hidden;
+}
+.step {
+  background: var(--warm-white);
+  padding: 40px 36px;
+  position: relative;
+}
+.step-num {
+  font-family: 'Lora', serif; font-size: 56px; font-weight: 700;
+  color: var(--teal-light); line-height: 1;
+  position: absolute; top: 28px; right: 28px;
+  user-select: none;
+}
+.step-icon {
+  width: 52px; height: 52px; border-radius: 14px;
+  background: var(--teal-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; margin-bottom: 20px;
+}
+.step h3 {
+  font-family: 'Lora', serif; font-size: 19px; font-weight: 600;
+  color: var(--ink); margin-bottom: 10px; line-height: 1.3;
+}
+.step p { font-size: 14px; color: var(--ink-mid); line-height: 1.7; font-weight: 300; }
+.step-tag {
+  display: inline-block; margin-top: 16px; font-size: 10px;
+  font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 100px;
+  background: var(--teal-light); color: var(--teal);
+}
+
+/* ── MODES (attended / unattended) ── */
+.modes-section { background: var(--cream); }
+.modes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.mode-card {
+  border-radius: var(--radius);
+  padding: 48px 44px;
+  position: relative; overflow: hidden;
+}
+.mode-card.attended {
+  background: var(--teal);
+  color: #fff;
+}
+.mode-card.unattended {
+  background: var(--warm-white);
+  border: 1.5px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+.mode-card::before {
+  content: '';
+  position: absolute; top: -40px; right: -40px;
+  width: 160px; height: 160px; border-radius: 50%;
+  background: rgba(255,255,255,.06);
+}
+.mode-icon-wrap {
+  width: 56px; height: 56px; border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; margin-bottom: 24px;
+}
+.attended .mode-icon-wrap { background: rgba(255,255,255,.15); }
+.unattended .mode-icon-wrap { background: var(--teal-light); }
+.mode-card h3 {
+  font-family: 'Lora', serif; font-size: 24px; font-weight: 700;
+  margin-bottom: 8px; line-height: 1.2;
+}
+.attended h3 { color: #fff; }
+.unattended h3 { color: var(--ink); }
+.mode-subtitle {
+  font-size: 12px; font-weight: 500; letter-spacing: .12em;
+  text-transform: uppercase; margin-bottom: 16px;
+}
+.attended .mode-subtitle { color: rgba(255,255,255,.65); }
+.unattended .mode-subtitle { color: var(--teal); }
+.mode-desc { font-size: 15px; line-height: 1.75; font-weight: 300; margin-bottom: 28px; }
+.attended .mode-desc { color: rgba(255,255,255,.82); }
+.unattended .mode-desc { color: var(--ink-mid); }
+.mode-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.mode-list li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; line-height: 1.5;
+}
+.attended .mode-list li { color: rgba(255,255,255,.85); }
+.unattended .mode-list li { color: var(--ink-mid); }
+.mode-list li::before {
+  content: '✓'; font-weight: 600; flex-shrink: 0;
+  width: 20px; height: 20px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; margin-top: 2px;
+}
+.attended .mode-list li::before { background: rgba(255,255,255,.2); color: #fff; }
+.unattended .mode-list li::before { background: var(--teal-light); color: var(--teal); }
+
+/* ── RELIABILITY ── */
+.reliability-section { background: var(--ink); color: #fff; }
+.reliability-section .section-eyebrow { color: var(--teal-mid); }
+.reliability-section .section-eyebrow::before { background: var(--teal-mid); }
+.reliability-section .section-h2 { color: #fff; }
+.reliability-section .section-lead { color: rgba(255,255,255,.6); }
+.rel-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 1px; background: rgba(255,255,255,.08);
+  border-radius: var(--radius); overflow: hidden;
+  margin-bottom: 48px;
+}
+.rel-cell {
+  background: #21180f;
+  padding: 32px 28px;
+}
+.rel-num {
+  font-family: 'Lora', serif; font-size: 40px; font-weight: 700;
+  color: #fff; letter-spacing: -.03em; line-height: 1;
+}
+.rel-num span { color: var(--teal-mid); }
+.rel-lbl {
+  font-size: 12px; font-weight: 500; letter-spacing: .1em;
+  text-transform: uppercase; color: rgba(255,255,255,.4);
+  margin-top: 8px; display: block;
+}
+.rel-desc { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.6; margin-top: 8px; }
+
+.rel-features {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
+}
+.rel-feat {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius-sm);
+  padding: 24px;
+}
+.rel-feat-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: rgba(10,124,106,.2); color: var(--teal-mid);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; margin-bottom: 14px;
+}
+.rel-feat h4 {
+  font-family: 'DM Sans', sans-serif; font-size: 15px;
+  font-weight: 500; color: #fff; margin-bottom: 6px;
+}
+.rel-feat p { font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.6; }
+
+/* ── TESTIMONIAL ── */
+.testimonial-section { background: var(--teal-light); }
+.testimonial-wrap { max-width: 720px; margin: 0 auto; text-align: center; }
+.quote-mark {
+  font-family: 'Lora', serif; font-size: 80px; line-height: .6;
+  color: var(--teal); opacity: .25; margin-bottom: 16px;
+  display: block;
+}
+.testimonial-quote {
+  font-family: 'Lora', serif; font-size: clamp(20px,2.2vw,26px);
+  font-weight: 400; font-style: italic; color: var(--ink);
+  line-height: 1.65; margin-bottom: 28px;
+}
+.testimonial-attr {
+  font-size: 13px; font-weight: 500; color: var(--teal);
+  letter-spacing: .08em; text-transform: uppercase;
+}
+
+/* ── PHOTO STRIP ── */
+.photo-strip {
+  display: grid; grid-template-columns: 2fr 1fr 1fr;
+  gap: 3px; height: 340px; overflow: hidden;
+}
+.photo-strip-item { overflow: hidden; position: relative; }
+.photo-strip-item img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .5s ease;
+}
+.photo-strip-item:hover img { transform: scale(1.03); }
+.photo-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,.55));
+  padding: 20px 16px 12px;
+  font-size: 11px; font-weight: 500; letter-spacing: .1em;
+  text-transform: uppercase; color: rgba(255,255,255,.85);
+}
+
+/* ── CTA SECTION ── */
+.cta-section {
+  background: var(--warm-white);
+  text-align: center;
+  padding: 100px 40px;
+}
+.cta-section .section-h2 { margin-bottom: 12px; }
+.cta-section .section-lead { margin: 0 auto 40px; text-align: center; }
+.cta-actions { display: flex; gap: 14px; justify-content: center; align-items: center; flex-wrap: wrap; }
+.cta-note { font-size: 12px; color: var(--ink-hint); margin-top: 14px; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink); color: rgba(255,255,255,.4);
+  padding: 32px 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 12px; letter-spacing: .06em;
+}
+footer .footer-logo {
+  font-family: 'Lora', serif; font-weight: 700;
+  font-size: 16px; color: rgba(255,255,255,.7);
+}
+footer .footer-logo span { color: var(--teal-mid); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-left > * {
+  animation: fadeUp .7s ease both;
+}
+.hero-left > *:nth-child(1) { animation-delay: .05s; }
+.hero-left > *:nth-child(2) { animation-delay: .15s; }
+.hero-left > *:nth-child(3) { animation-delay: .25s; }
+.hero-left > *:nth-child(4) { animation-delay: .32s; }
+.hero-left > *:nth-child(5) { animation-delay: .4s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 56px 32px; }
+  .hero-left::after { display: none; }
+  .hero-right { height: 360px; }
+  .section, .section-sm { padding: 64px 28px; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .modes-grid { grid-template-columns: 1fr; }
+  .rel-grid { grid-template-columns: 1fr 1fr; }
+  .rel-features { grid-template-columns: 1fr; }
+  .photo-strip { grid-template-columns: 1fr 1fr; height: auto; }
+  .photo-strip-item:last-child { display: none; }
+  nav { padding: 14px 24px; }
+  footer { flex-direction: column; gap: 12px; text-align: center; padding: 28px 24px; }
+}
+@media (max-width: 580px) {
+  .hero-h1 { font-size: 32px; }
+  .rel-grid { grid-template-columns: 1fr; }
+  .trust-row { gap: 20px; }
+  .photo-strip { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Splashtop <span>Personal</span></a>
+  <span class="nav-tag">Family Support Edition</span>
+  <a class="nav-cta" href="https://www.splashtop.com/personal" target="_blank">Try Free</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Remote Support for Family &amp; Friends</div>
+    <h1 class="hero-h1">
+      Be there for them —<br>
+      even when you <em>can't be there.</em>
+    </h1>
+    <p class="hero-sub">
+      When Mum can't open her email or Dad's laptop is acting up again, 
+      you don't have to drive across town. With Splashtop, you see their 
+      screen, take control, and fix it — in minutes, from anywhere.
+    </p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="https://www.splashtop.com/personal" target="_blank">Start Free — No Credit Card</a>
+      <a class="btn-secondary" href="#how-it-works">See how it works →</a>
+    </div>
+    <div class="trust-row">
+      <div class="trust-item">
+        <span class="trust-num">30<span>M+</span></span>
+        <span class="trust-lbl">Users worldwide</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-num">99.<span>9%</span></span>
+        <span class="trust-lbl">Uptime reliability</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-num">&lt;1<span>s</span></span>
+        <span class="trust-lbl">Connection time</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-num">256<span>-bit</span></span>
+        <span class="trust-lbl">AES encryption</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img class="hero-img"
+      src="https://images.stockcake.com/public/f/c/4/fc42f1fe-0c02-4f5f-9d38-0eec1306e9a8_large/senior-enjoys-technology-stockcake.jpg"
+      alt="Senior person happily using computer with family support"
+      onerror="this.style.display='none'">
+    <div class="hero-img-overlay"></div>
+    <div class="hero-badge">
+      <div class="badge-icon">🖥️</div>
+      <div class="badge-text">
+        <strong>Active remote session</strong>
+        <span>Your mum's screen — you're in control, she can see everything</span>
+        <div class="badge-live">Connected · Secure</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section section" id="how-it-works">
+  <div class="section-eyebrow">Simple by design</div>
+  <h2 class="section-h2">Help in three easy steps</h2>
+  <p class="section-lead">No IT degree required — for you or for them. If they can click a link, you're in.</p>
+  <div class="steps-grid">
+    <div class="step">
+      <span class="step-num">01</span>
+      <div class="step-icon">📲</div>
+      <h3>Send them a link</h3>
+      <p>One tap from you sends an invite. No software installation needed on their end for attended sessions — works straight from their browser.</p>
+      <span class="step-tag">30 seconds to connect</span>
+    </div>
+    <div class="step">
+      <span class="step-num">02</span>
+      <div class="step-icon">👁️</div>
+      <h3>See their screen live</h3>
+      <p>You see exactly what they see, in real time. Crystal-clear image quality means you can read every error message, every dialog box, without squinting.</p>
+      <span class="step-tag">HD · Low latency</span>
+    </div>
+    <div class="step">
+      <span class="step-num">03</span>
+      <div class="step-icon">🛠️</div>
+      <h3>Fix it together</h3>
+      <p>Take control of their mouse and keyboard. Walk them through the fix, or handle it yourself while they watch and learn. No frustration, no confusion.</p>
+      <span class="step-tag">Full remote control</span>
+    </div>
+  </div>
+</section>
+
+<!-- ATTENDED / UNATTENDED MODES -->
+<section class="modes-section section">
+  <div class="section-eyebrow">Two ways to help</div>
+  <h2 class="section-h2">When they need you — <em>on their terms</em></h2>
+  <p class="section-lead">Sometimes they're at their computer waiting for your help. Sometimes life's easier when you just fix it while they're out for a walk.</p>
+  <div class="modes-grid">
+
+    <div class="mode-card attended">
+      <div class="mode-icon-wrap">🤝</div>
+      <div class="mode-subtitle">Attended Support</div>
+      <h3>Help together, in real time</h3>
+      <p class="mode-desc">
+        They're at their computer and you're at yours. You take the wheel, 
+        they watch and learn. Perfect for teaching someone a new skill, 
+        walking through a confusing process, or tackling something tricky together.
+      </p>
+      <ul class="mode-list">
+        <li>They can see your every move — total transparency</li>
+        <li>Built-in chat so you can explain as you go</li>
+        <li>They end the session any time with one click</li>
+        <li>Works on Windows, Mac, iOS and Android</li>
+        <li>No technical knowledge needed on their side</li>
+      </ul>
+    </div>
+
+    <div class="mode-card unattended">
+      <div class="mode-icon-wrap">⏰</div>
+      <div class="mode-subtitle">Unattended Access</div>
+      <h3>Fix it before they even notice</h3>
+      <p class="mode-desc">
+        Set up once, access anytime. Run updates while they sleep, clear up 
+        disk space while they're at lunch, install software before they 
+        even know they need it — no call required.
+      </p>
+      <ul class="mode-list">
+        <li>Access their computer any time, even if it's locked</li>
+        <li>Run updates, clear clutter, install software silently</li>
+        <li>Full session logs so nothing goes unaccounted for</li>
+        <li>Automatic wake-on-LAN support</li>
+        <li>Manage multiple family devices from one dashboard</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- PHOTO STRIP -->
+<div class="photo-strip">
+  <div class="photo-strip-item">
+    <img src="https://images.stockcake.com/public/2/4/b/24bc3425-a104-4097-bc07-156723ddd05a_large/senior-using-laptop-stockcake.jpg"
+      alt="Senior using laptop with focus and confidence">
+    <div class="photo-caption">Confidence through connection</div>
+  </div>
+  <div class="photo-strip-item">
+    <img src="https://images.stockcake.com/public/f/c/4/fc42f1fe-0c02-4f5f-9d38-0eec1306e9a8_large/senior-enjoys-technology-stockcake.jpg"
+      alt="Elderly person enjoying technology">
+    <div class="photo-caption">Technology made accessible</div>
+  </div>
+  <div class="photo-strip-item" style="background: var(--teal); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px; padding:24px; text-align:center;">
+    <div style="font-size:40px;">💚</div>
+    <div style="font-family:'Lora',serif;font-size:18px;font-weight:600;color:#fff;line-height:1.3;">Less worry.<br>More quality time.</div>
+  </div>
+</div>
+
+<!-- RELIABILITY -->
+<section class="reliability-section section">
+  <div class="section-eyebrow">Built to be trusted</div>
+  <h2 class="section-h2">Reliable. Secure. Always there.</h2>
+  <p class="section-lead">
+    You're trusting Splashtop with access to someone you love. We take that seriously — 
+    enterprise-grade security, rock-solid uptime, and performance that doesn't let you down when it matters most.
+  </p>
+  <div class="rel-grid">
+    <div class="rel-cell">
+      <div class="rel-num">99.<span>9%</span></div>
+      <span class="rel-lbl">Uptime SLA</span>
+      <p class="rel-desc">Always on, so help is there the moment it's needed — not when the service decides to wake up.</p>
+    </div>
+    <div class="rel-cell">
+      <div class="rel-num">&lt;<span>1s</span></div>
+      <span class="rel-lbl">Connection time</span>
+      <p class="rel-desc">From click to connected in under a second. No awkward waiting while their patience runs out.</p>
+    </div>
+    <div class="rel-cell">
+      <div class="rel-num">256<span>b</span></div>
+      <span class="rel-lbl">AES Encryption</span>
+      <p class="rel-desc">Bank-level encryption on every session. Nobody sees or intercepts what's on their screen but you.</p>
+    </div>
+    <div class="rel-cell">
+      <div class="rel-num">30<span>M+</span></div>
+      <span class="rel-lbl">Active users</span>
+      <p class="rel-desc">Trusted by millions of families, IT teams and businesses in 180+ countries worldwide.</p>
+    </div>
+  </div>
+
+  <div class="rel-features">
+    <div class="rel-feat">
+      <div class="rel-feat-icon">🔐</div>
+      <h4>Two-Factor Authentication</h4>
+      <p>Every login is verified. Add device-level PIN protection for extra peace of mind.</p>
+    </div>
+    <div class="rel-feat">
+      <div class="rel-feat-icon">📋</div>
+      <h4>Full Session Logs</h4>
+      <p>Every session is recorded and logged — what was done, when, and for how long. Full accountability.</p>
+    </div>
+    <div class="rel-feat">
+      <div class="rel-feat-icon">🌐</div>
+      <h4>Works on Any Network</h4>
+      <p>Home broadband, mobile data, weak Wi-Fi — Splashtop adapts to the connection it has and stays stable.</p>
+    </div>
+    <div class="rel-feat">
+      <div class="rel-feat-icon">🖥️</div>
+      <h4>Multi-Device Dashboard</h4>
+      <p>Manage Mum's laptop, Dad's desktop and a friend's PC all from one simple, clean dashboard.</p>
+    </div>
+    <div class="rel-feat">
+      <div class="rel-feat-icon">🔄</div>
+      <h4>Automatic Reconnect</h4>
+      <p>If the connection drops, Splashtop reconnects automatically. No need to call them back and start over.</p>
+    </div>
+    <div class="rel-feat">
+      <div class="rel-feat-icon">🔔</div>
+      <h4>Alerts &amp; Notifications</h4>
+      <p>Get notified when their computer needs attention — before they even know something's wrong.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial-section section-sm">
+  <div class="testimonial-wrap">
+    <span class="quote-mark">"</span>
+    <p class="testimonial-quote">
+      My mum lives four hours away and was calling me in tears because she'd accidentally deleted 
+      something important. With Splashtop I was in her computer in under a minute, recovered the 
+      file, and had her laughing again before she'd even made a cup of tea.
+    </p>
+    <div class="testimonial-attr">Sarah K. — Splashtop Personal user, Manchester</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-eyebrow" style="justify-content:center;">Get started today</div>
+  <h2 class="section-h2" style="text-align:center;">The best time to set this up<br>is before they need it.</h2>
+  <p class="section-lead" style="text-align:center;">
+    Five minutes now means you're ready the next time they call. 
+    Free to try — no credit card, no complicated setup.
+  </p>
+  <div class="cta-actions">
+    <a class="btn-primary" href="https://www.splashtop.com/personal" target="_blank">Start Free Today</a>
+    <a href="https://www.splashtop.com" target="_blank" class="btn-secondary">Learn more about Splashtop →</a>
+  </div>
+  <p class="cta-note">Free trial available · Works on Windows, Mac, iOS &amp; Android · No credit card required</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Splashtop <span>Personal</span></span>
+  <span>© 2025 Splashtop Inc. · Family Support Edition</span>
+  <span>Concept page — for feedback &amp; review</span>
+</footer>
+
+</body>
+</html>
